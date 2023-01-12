@@ -2,15 +2,19 @@ package com.rodrigojramos.crud.dto;
 
 import com.rodrigojramos.crud.entities.Client;
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "Data não pode ser futura")
     private LocalDate birthDate;
     private Integer children;
 
